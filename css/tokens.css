@@ -63,50 +63,17 @@
   --dur-base: 300ms;
   --dur-slow: 600ms;
 
-  /* ---------- Color: light theme ("paper & ink") ---------- */
-  --paper: #f4f1ea;        /* page background */
-  --paper-2: #ebe6db;      /* inset surfaces, hover fills */
-  --ink: #17150f;          /* primary text, strong lines */
-  --ink-2: #4a463d;        /* secondary text */
-  --ink-3: #7d786c;        /* tertiary: large meta text & decoration only */
-  --rule: #d5cebf;         /* hairlines & borders */
-  --accent: #b83d0a;       /* burnt vermilion — links, key marks, one per view */
-  --accent-ink: #f4f1ea;   /* text placed on --accent */
-  --danger: #a3201b;       /* form errors only (kept distinct from the accent) */
-  --selection: #f1c7a8;
-
-  color-scheme: light;
-}
-
-/* ---------- Color: dark theme ("ink & paper") ----------
-   Applied automatically from the OS setting unless the user forces light,
-   or manually via <html data-theme="dark">. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #13120f;
-    --paper-2: #1d1b17;
-    --ink: #ece7dc;
-    --ink-2: #aaa497;
-    --ink-3: #757064;
-    --rule: #2f2c26;
-    --accent: #ee7a45;
-    --accent-ink: #13120f;
-    --danger: #f28b82;
-    --selection: #5a2a14;
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --paper: #13120f;
-  --paper-2: #1d1b17;
-  --ink: #ece7dc;
-  --ink-2: #aaa497;
-  --ink-3: #757064;
-  --rule: #2f2c26;
-  --accent: #ee7a45;
-  --accent-ink: #13120f;
-  --danger: #f28b82;
+  /* ---------- Color: dark theme only ("ink & paper") ---------- */
+  --paper: #13120f;        /* page background */
+  --paper-2: #1d1b17;      /* inset surfaces, hover fills */
+  --ink: #ece7dc;          /* primary text, strong lines */
+  --ink-2: #aaa497;        /* secondary text */
+  --ink-3: #757064;        /* tertiary: large meta text & decoration only */
+  --rule: #2f2c26;         /* hairlines & borders */
+  --accent: #ee7a45;       /* burnt vermilion — links, key marks, one per view */
+  --accent-ink: #13120f;   /* text placed on --accent */
+  --danger: #f28b82;       /* form errors only (kept distinct from the accent) */
   --selection: #5a2a14;
+
   color-scheme: dark;
 }

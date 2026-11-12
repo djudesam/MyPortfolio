@@ -2,7 +2,7 @@
 
 A one-page personal portfolio with seven parts: Home, About Me, Skills, Projects, Achievements, Contact and a footer. It's built with plain HTML, CSS and JavaScript: no frameworks, no build step and no npm packages.
 
-The design direction is "editorial print": warm paper and ink colors, a serif display face, numbered sections and hairline rules instead of cards. It has a light and a dark theme. The design rules are documented in [DESIGN.md](DESIGN.md).
+The design direction is "editorial print": warm paper and ink colors, a serif display face, numbered sections and hairline rules instead of cards. It uses a single dark theme. The design rules are documented in [DESIGN.md](DESIGN.md).
 
 > **All personal content is placeholder text.** Every spot to replace is marked with an `<!-- EDIT -->` comment in `index.html`. See [Customize your information](#customize-your-information).
 
@@ -12,13 +12,12 @@ The design direction is "editorial print": warm paper and ink colors, a serif di
 
 - Sticky navigation that highlights the current section, with a full-screen menu on phones
 - Smooth scrolling, which turns off when the visitor's system asks for reduced motion
-- Light and dark theme toggle that remembers the visitor's choice and starts from their system setting
 - Hero, about section with an education timeline, skills with three defined levels (no fake percentages), alternating project rows, and an achievements list
 - Certificate previews in an accessible dialog (Escape, close button or a click outside closes it)
 - Contact form with clear validation, ready for Formspree, and honest about whether a message was actually sent
 - "Copy email" button, and a footer with quick links and Back to top
 - SEO and sharing tags (title, description, Open Graph, Twitter card), a favicon and an Apple touch icon
-- Accessibility: keyboard support, visible focus, skip link, labelled form fields, and WCAG AA contrast in both themes
+- Accessibility: keyboard support, visible focus, skip link, labelled form fields, and WCAG AA contrast
 - Works without JavaScript: all content stays visible and the nav becomes plain links
 
 ## Technologies
@@ -29,7 +28,7 @@ The design direction is "editorial print": warm paper and ink colors, a serif di
 | Styles | CSS3 (custom properties, grid, `clamp()` fluid type). No preprocessor |
 | Scripts | Vanilla JavaScript (ES modules). No libraries |
 | Fonts | Google Fonts: Fraunces, Instrument Sans, JetBrains Mono |
-| Icons | Two inline SVGs (theme toggle, close). No icon library |
+| Icons | One inline SVG (close). No icon library |
 | Contact form | [Formspree](https://formspree.io) (optional, free tier) |
 
 ## Folder structure
@@ -59,7 +58,6 @@ Porfolio/
     ├── main.js                 ← starts every module
     └── modules/
         ├── nav.js              ← mobile menu + active link
-        ├── theme.js            ← light/dark toggle
         ├── reveal.js           ← fade-in on scroll
         ├── lightbox.js         ← certificate preview dialog
         ├── contact.js          ← copy email, form validation, sending
@@ -68,7 +66,7 @@ Porfolio/
 
 ## Run it locally
 
-The scripts are ES modules, which browsers only run from a web server, not from a file you double-click. If you double-click `index.html`, the page still shows all content, but the menu, theme toggle, form checks and previews won't work.
+The scripts are ES modules, which browsers only run from a web server, not from a file you double-click. If you double-click `index.html`, the page still shows all content, but the menu, form checks and previews won't work.
 
 Pick one of these options:
 
@@ -104,7 +102,7 @@ Open `index.html` and search for **`EDIT`**. Each comment sits right above the c
 
 **Education:** newest entry first. Add `data-current` to the entry you're still enrolled in, which gives it a filled orange marker.
 
-**Changing the look:** colors, fonts and spacing all live in `css/tokens.css`. Change a value there and it updates everywhere, in both themes.
+**Changing the look:** colors, fonts and spacing all live in `css/tokens.css`. Change a value there and it updates everywhere.
 
 ## Replace images
 

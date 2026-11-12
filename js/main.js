@@ -5,7 +5,6 @@
 
 import { setCurrentYear, disablePlaceholderLinks } from "./modules/utils.js";
 import { initNav } from "./modules/nav.js";
-import { initTheme } from "./modules/theme.js";
 import { initReveal } from "./modules/reveal.js";
 import { initLightbox } from "./modules/lightbox.js";
 import { initContact } from "./modules/contact.js";
@@ -15,7 +14,6 @@ import { initContact } from "./modules/contact.js";
 clearTimeout(window.__jsFallback);
 document.documentElement.classList.add("js");
 
-initTheme();
 initNav();
 initReveal();
 initLightbox();

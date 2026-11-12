@@ -45,7 +45,6 @@ export function initNav() {
   desktopQuery.addEventListener("change", (event) => {
     if (event.matches) setOpen(false);
   });
-
   trackActiveSection(navLinks);
 }
 

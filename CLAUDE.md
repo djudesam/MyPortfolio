@@ -9,7 +9,7 @@ One-page personal portfolio. Plain HTML, CSS and vanilla JS (ES modules). No fra
 
 ES modules need a server: `python -m http.server 8000` (or VS Code Live Server), then open http://localhost:8000. Opening `index.html` as a file shows content but no JS behavior.
 
-There are no tests or linters. Check changes in a browser at 320px, 768px and 1280px, in both themes, and with JS disabled.
+There are no tests or linters. Check changes in a browser at 320px, 768px and 1280px and with JS disabled.
 
 ## Content
 
@@ -19,12 +19,13 @@ There are no tests or linters. Check changes in a browser at 320px, 768px and 12
 
 ## Code rules
 
-- **CSS:** colors, fonts, sizes, spacing and radii come only from `css/tokens.css`. Never hard-code them elsewhere. Files load in order tokens → base → layout → components → utilities. Mobile-first `min-width` queries at 30em / 48em / 64em / 80em. BEM class names.
+- **Three designs, one switch:** `index.html` links exactly one stylesheet. `css/style-v3.css` (current) is dark with an animated glowing background and a large glowing hero photo. `css/style-v2.css` is the same layout in a light theme. `css/style-v1.css` only `@import`s the original dark design (tokens → base → layout → components → utilities). Each is self-contained with its tokens at the top. Make new design work in a new or the current file, and never edit the older ones so switching back keeps working.
+- **CSS:** colors, fonts, sizes and spacing come from the token block at the top of the active design. Never hard-code them elsewhere. Mobile-first `min-width` queries (v2: 48em tablet, 64em desktop). BEM class names. Don't rename HTML classes: both designs depend on them.
 - **JS:** one feature per module in `js/modules/`, each exporting an `initX()` called from `js/main.js`. Progressive enhancement only: the page must be fully readable without JS. JS-only styles hang off the `.js` class on `<html>`, which the `<head>` fallback removes if `main.js` hasn't started within 3s.
 - **Fonts:** only the loaded weights exist (Fraunces 400 + italic 400; Instrument Sans and JetBrains Mono 400/500). Add a weight to the Google Fonts URL before using it.
 - **Icons:** inline SVG, stroke-width 1.5, `currentColor`. No icon library.
 - **Motion:** `opacity`/`transform` only, runs once, off under `prefers-reduced-motion`.
-- **Accessibility:** one `<h1>`, no skipped heading levels, every control named, every ARIA-referenced `id` exists, WCAG AA contrast in both themes, tap targets ≥ 44px for buttons/fields.
+- **Accessibility:** one `<h1>`, no skipped heading levels, every control named, every ARIA-referenced `id` exists, WCAG AA contrast, tap targets ≥ 44px for buttons/fields.
 - **Banned visuals:** gradients, glassmorphism, glows, decorative shadows, blobs, emoji icons, large rounded cards, a second accent color.
 
 ## Contact form

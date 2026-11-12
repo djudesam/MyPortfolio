@@ -1,0 +1,14 @@
+/* ==========================================================================
+   STYLE v1 — your original design, unchanged.
+   This file only loads the five original stylesheets in their usual order,
+   so the whole old look can be switched on with ONE line in index.html:
+
+     <link rel="stylesheet" href="css/style-v1.css">   ← original design
+     <link rel="stylesheet" href="css/style-v2.css">   ← new design
+   ========================================================================== */
+
+@import url("tokens.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("utilities.css");

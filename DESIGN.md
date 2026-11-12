@@ -6,7 +6,7 @@ The reference document for all seven development stages. If a new element doesn'
 
 The site should read like a well-set magazine or monograph, not a SaaS landing page.
 
-- **Paper and ink.** Warm off-white paper, near-black ink, and **one** accent (burnt vermilion). The dark theme inverts this to ink and paper.
+- **Ink and paper.** The site is dark-only: near-black paper, warm off-white ink, and **one** accent (burnt vermilion). The light palette and theme toggle were removed on 2026-11-13.
 - **Type does the work.** A large display serif for headlines, a quiet grotesque for reading, and monospace for metadata. Hierarchy comes from size, weight and spacing, not from color or boxes.
 - **Rules, not cards.** Content is separated by 1px hairlines and whitespace. Lists of projects and awards are *ruled rows*, not grids of rounded cards.
 - **Numbered sections.** Each section opens with a mono index (`01 — About`) and a serif title on a shared grid. This gives the page one continuous, intentional sequence.
@@ -27,16 +27,16 @@ The fluid scale runs from `--step--2` to `--step-6` in `css/tokens.css` (ratio a
 
 ## Color tokens
 
-| Token | Light | Dark | Use |
-|---|---|---|---|
-| `--paper` | `#f4f1ea` | `#13120f` | background |
-| `--paper-2` | `#ebe6db` | `#1d1b17` | inset / hover surface |
-| `--ink` | `#17150f` | `#ece7dc` | primary text, strong rules |
-| `--ink-2` | `#4a463d` | `#aaa497` | secondary text |
-| `--ink-3` | `#7d786c` | `#757064` | large meta and decoration only (low contrast) |
-| `--rule` | `#d5cebf` | `#2f2c26` | hairlines |
-| `--accent` | `#b83d0a` | `#ee7a45` | links, key marks; use sparingly |
-| `--danger` | `#a3201b` | `#f28b82` | form errors only |
+| Token | Value | Use |
+|---|---|---|
+| `--paper` | `#13120f` | background |
+| `--paper-2` | `#1d1b17` | inset / hover surface |
+| `--ink` | `#ece7dc` | primary text, strong rules |
+| `--ink-2` | `#aaa497` | secondary text |
+| `--ink-3` | `#757064` | large meta and decoration only (low contrast) |
+| `--rule` | `#2f2c26` | hairlines |
+| `--accent` | `#ee7a45` | links, key marks; use sparingly |
+| `--danger` | `#f28b82` | form errors only |
 
 ## Spacing and layout
 
@@ -69,7 +69,6 @@ Porfolio/
     └── modules/
         ├── utils.js       qs/qsa helpers, setCurrentYear
         ├── nav.js         mobile menu, active-section highlighting
-        ├── theme.js       light/dark toggle (saved in localStorage)
         ├── reveal.js      one-time fade-up for .reveal elements on scroll
         ├── lightbox.js    certificate preview dialog
         └── contact.js     copy-email button, form validation, Formspree submit
@@ -80,7 +79,7 @@ Porfolio/
 - Personal content you need to replace is marked with `<!-- EDIT: … -->` comments in `index.html`.
 - Class names use BEM: `.block__element--modifier`.
 - Never hard-code a color, font or size outside `tokens.css`.
-- Icons: inline SVG at stroke-width 1.5 in `currentColor`. No icon library, so no extra dependency. Use icons only where they replace a word (theme toggle, close).
+- Icons: inline SVG at stroke-width 1.5 in `currentColor`. No icon library, so no extra dependency. Use icons only where they replace a word (close).
 - JS is progressive enhancement: the page must be fully readable without it. If `main.js` fails to load or hasn't started within 3s, the `js` class is removed (set up in `<head>`), so JS-only styles never hide content.
 - ES modules need a local server. Open the site with VS Code's **Live Server** rather than double-clicking the file.
 - Fonts: only the styles in use are requested (Fraunces 400 and italic 400; Instrument Sans and JetBrains Mono 400/500). Add a weight to the Google Fonts URL before using it in CSS.
@@ -88,7 +87,7 @@ Porfolio/
 ## Stages
 
 1. **Setup and design system** (done)
-2. **Header/navigation (mobile menu, theme toggle) and the Home hero** (done)
+2. **Header/navigation (mobile menu) and the Home hero** (done)
 3. **About Me and Skills** (done)
 4. **Projects and Achievements** (done)
 5. **Contact, footer and interactions** (done)
@@ -100,7 +99,7 @@ Porfolio/
 - No horizontal scroll from 320px up. Long words and paths wrap (`overflow-wrap`).
 - Text is never smaller than 12.5px (`--step--2` minimum).
 - Tap targets are at least 24px for list links and 44px for buttons and fields.
-- Text contrast meets WCAG AA in both themes. Field borders are at least 3:1.
+- Text contrast meets WCAG AA. Field borders are at least 3:1.
 - Exactly one `<h1>`, and no skipped heading levels. Every control has a name. Every `id` referenced by ARIA attributes or links exists.
 - Only top-level sections are landmarks. Sub-groups use plain `<div>`s with headings.
 - Motion uses only `opacity` and `transform`, runs once, and is switched off under `prefers-reduced-motion`.
