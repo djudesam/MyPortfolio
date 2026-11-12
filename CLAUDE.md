@@ -28,6 +28,6 @@ There are no tests or linters. Check changes in a browser at 320px, 768px and 12
 - **Accessibility:** one `<h1>`, no skipped heading levels, every control named, every ARIA-referenced `id` exists, WCAG AA contrast, tap targets ≥ 44px for buttons/fields.
 - **Banned visuals:** gradients, glassmorphism, glows, decorative shadows, blobs, emoji icons, large rounded cards, a second accent color.
 
-## Contact form
+## Contact
 
-Posts to Formspree via `action="https://formspree.io/f/YOUR_FORM_ID"`. While the placeholder ID remains, `contact.js` validates but sends nothing and says so. Never make it claim success without a confirmed response. Keep the `_gotcha` honeypot field.
+There is no contact form: the owner removed it on 2026-11-13 (no backend). Contact is the email (with a Copy button), GitHub and Facebook links. Don't re-add a form unless asked. `contact.js` still holds the old form code, which skips safely when no form is present.

@@ -1225,6 +1225,16 @@ ol.timeline {
   gap: 0.75rem;
 }
 
+/* v3: the email sits in a highlighted card */
+.contact__email {
+  align-self: start;
+  padding: var(--s-3);
+  border: 1px solid rgb(167 139 250 / 0.3);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-hover);
+}
+
 .contact__channel {
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
@@ -1326,9 +1336,15 @@ ol.timeline {
 }
 
 @media (min-width: 64em) {
-  .contact__body {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-    gap: var(--s-6);
+  /* v3: no form, so the contact details use the full width */
+  .contact__info {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: var(--s-6);
+  }
+
+  .contact__info .lead {
+    grid-column: 1 / -1;
+    max-width: 52ch;
   }
 
   .contact-form {
