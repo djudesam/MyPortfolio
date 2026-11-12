@@ -1,0 +1,112 @@
+/* ==========================================================================
+   TOKENS — the single source of truth for the design system.
+   Change values here; never hard-code colors, sizes or fonts elsewhere.
+   ========================================================================== */
+
+:root {
+  /* ---------- Typography: families ---------- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;   /* headlines, big numbers */
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif; /* paragraphs, UI */
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;  /* labels, indexes, metadata */
+
+  /* ---------- Typography: fluid scale (min @ 360px → max @ 1280px) ---------- */
+  --step--2: clamp(0.78rem, 0.76rem + 0.10vw, 0.82rem);  /* micro labels: never below 12.5px */
+  --step--1: clamp(0.84rem, 0.82rem + 0.12vw, 0.92rem);  /* captions, meta */
+  --step-0:  clamp(1.00rem, 0.96rem + 0.20vw, 1.13rem);  /* body */
+  --step-1:  clamp(1.20rem, 1.12rem + 0.38vw, 1.42rem);  /* lead text, h4 */
+  --step-2:  clamp(1.44rem, 1.30rem + 0.65vw, 1.80rem);  /* h3 */
+  --step-3:  clamp(1.73rem, 1.48rem + 1.10vw, 2.40rem);  /* h2 small */
+  --step-4:  clamp(2.07rem, 1.66rem + 1.80vw, 3.20rem);  /* section titles */
+  --step-5:  clamp(2.49rem, 1.80rem + 3.00vw, 4.50rem);  /* large display */
+  --step-6:  clamp(3.00rem, 1.80rem + 5.40vw, 6.75rem);  /* hero name */
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-body: 1.6;
+  --tracking-tight: -0.025em;
+  --tracking-label: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500; /* the font request loads 400 and 500 only */
+
+  /* ---------- Spacing: 4px base, roughly geometric ---------- */
+  --space-1: 0.25rem;  /*   4px */
+  --space-2: 0.5rem;   /*   8px */
+  --space-3: 0.75rem;  /*  12px */
+  --space-4: 1rem;     /*  16px */
+  --space-5: 1.5rem;   /*  24px */
+  --space-6: 2rem;     /*  32px */
+  --space-7: 3rem;     /*  48px */
+  --space-8: 4rem;     /*  64px */
+  --space-9: 6rem;     /*  96px */
+  --space-10: 8rem;    /* 128px */
+
+  --section-pad: clamp(var(--space-8), 10vw, var(--space-10)); /* vertical rhythm between sections */
+
+  /* ---------- Layout ---------- */
+  --container: 75rem;        /* 1200px — main grid */
+  --gutter: clamp(1rem, 4vw, 2.5rem); /* side padding, also grid gap */
+  --header-h: 4.5rem;
+
+  /* Breakpoints (reference only — CSS variables can't be used in @media):
+     sm 30em (480px) · md 48em (768px) · lg 64em (1024px) · xl 80em (1280px)
+     Write mobile-first: base styles, then @media (min-width: …). */
+
+  /* ---------- Shape ---------- */
+  --radius-sm: 2px;  /* tags, inputs */
+  --radius-md: 4px;  /* images, panels — kept deliberately small */
+  --border: 1px solid var(--rule);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+
+  /* ---------- Color: light theme ("paper & ink") ---------- */
+  --paper: #f4f1ea;        /* page background */
+  --paper-2: #ebe6db;      /* inset surfaces, hover fills */
+  --ink: #17150f;          /* primary text, strong lines */
+  --ink-2: #4a463d;        /* secondary text */
+  --ink-3: #7d786c;        /* tertiary: large meta text & decoration only */
+  --rule: #d5cebf;         /* hairlines & borders */
+  --accent: #b83d0a;       /* burnt vermilion — links, key marks, one per view */
+  --accent-ink: #f4f1ea;   /* text placed on --accent */
+  --danger: #a3201b;       /* form errors only (kept distinct from the accent) */
+  --selection: #f1c7a8;
+
+  color-scheme: light;
+}
+
+/* ---------- Color: dark theme ("ink & paper") ----------
+   Applied automatically from the OS setting unless the user forces light,
+   or manually via <html data-theme="dark">. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #13120f;
+    --paper-2: #1d1b17;
+    --ink: #ece7dc;
+    --ink-2: #aaa497;
+    --ink-3: #757064;
+    --rule: #2f2c26;
+    --accent: #ee7a45;
+    --accent-ink: #13120f;
+    --danger: #f28b82;
+    --selection: #5a2a14;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #13120f;
+  --paper-2: #1d1b17;
+  --ink: #ece7dc;
+  --ink-2: #aaa497;
+  --ink-3: #757064;
+  --rule: #2f2c26;
+  --accent: #ee7a45;
+  --accent-ink: #13120f;
+  --danger: #f28b82;
+  --selection: #5a2a14;
+  color-scheme: dark;
+}

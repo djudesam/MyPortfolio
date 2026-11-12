@@ -1,0 +1,63 @@
+/* ==========================================================================
+   LAYOUT — container, section rhythm, numbered headings.
+   Section-specific grids live with their components (all use the same
+   12-column / --gutter rhythm, with content edges at columns 1, 5 or 7).
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Section: consistent vertical rhythm + hairline divider ---------- */
+.section {
+  padding-block: var(--section-pad);
+  border-top: var(--border);
+}
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+/* ---------- Numbered index labels ----------
+   One style for every index in the numbered sequence:
+   "00 — Introduction", "01 — About", "01.1", "02.3"… */
+.hero__eyebrow,
+.section-head__index,
+.subhead__index,
+.skill-group__index {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Section header pattern used by every section:
+   [01 — About]  Section title ..................... optional aside
+   Stacked below lg; three columns from lg up. */
+.section-head {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.section-head__title {
+  font-size: var(--step-4);
+}
+
+.section-head__aside {
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+
+@media (min-width: 64em) {
+  .section-head {
+    /* the index column never gets narrower than its label, so it can't run under the title */
+    grid-template-columns: minmax(max-content, 2fr) minmax(0, 7fr) minmax(0, 3fr);
+    align-items: baseline;
+    gap: var(--gutter);
+  }
+}
